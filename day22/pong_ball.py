@@ -11,17 +11,17 @@ class Ball(Turtle):
         self.setheading(random.randint(150, 210))
         self.generate()
         self.in_progress = False
-
+        self.ball_speed = BALL_SPEED
     def move(self):
-        self.forward(BALL_SPEED)
+        self.forward(self.ball_speed)
 
     def generate(self):
         self.goto(0, 0)
-
+        self.ball_speed = BALL_SPEED
     def bounce(self):
         self.in_progress = True
         if 0 <= self.heading() < 90:
-            temp = 90- self.heading()
+            temp = 90 - self.heading()
             self.setheading(90 + temp)
 
         elif 90 <= self.heading() < 180:
@@ -35,6 +35,7 @@ class Ball(Turtle):
             temp = 360 - self.heading()
             self.setheading(270 - temp)
 
+        self.ball_speed += 0.25
         self.in_progress = False
 
     def wall_bounce(self):

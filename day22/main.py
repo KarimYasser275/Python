@@ -34,7 +34,8 @@ while not game_over:
     screen.update()
     time.sleep(0.01)
     if not ball.in_progress:
-        if ball.distance(player1) < 15 or ball.distance(player2) < 15:
+        if (ball.distance(player1) < 30 and ball.xcor() < -365)\
+                or (ball.distance(player2) < 30 and ball.xcor() > 365):
             ball.bounce()
         elif ball.ycor() < -280 or ball.ycor() > 280:
             ball.wall_bounce()
