@@ -29,10 +29,11 @@ def write_state(input_state):
 
 
 def generate_csv():
-    missing_states = []
-    for state in states:
-        if state not in guessed_states:
-            missing_states.append(state)
+    # missing_states = []
+    # for state in states:
+    #     if state not in guessed_states:
+    #         missing_states.append(state)
+    missing_states = [state for state in states if state not in guessed_states]
     missing_states_csv = pandas.DataFrame(missing_states)
     missing_states_csv.to_csv("Missing_States.csv")
     print(missing_states_csv)
